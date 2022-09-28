@@ -41,14 +41,14 @@ defaults
   #balance source           #设置默认负载均衡方式，类似于nginx的ip_hash
   #balnace leastconn        #设置默认负载均衡方式，最小连接数
 listen admin_stats
-  bind 0.0.0.0:1111               #节点统计页面的访问端口
+  bind 0.0.0.0:1122               #节点统计页面的访问端口
   mode http                       #http的7层模式
   option httplog                  #采用http日志格式
   maxconn 10                      #节点统计页面默认的最大连接数
   stats refresh 30s               #节点统计页面自动刷新时间
   stats uri /haproxy              #节点统计页面url
   stats realm Haproxy             #统计页面密码框上提示文本
-  stats auth admin:root           #设置监控页面的用户和密码:admin,可以设置多个用户名
+  stats auth root:123456           #设置监控页面的用户和密码:root,可以设置多个用户名
   stats  admin if TRUE            #设置手工启动/禁用，后端服务器(haproxy-1.4.9以后版本)
 resolvers mydns
   nameserver dns1 114.114.114.114:53
